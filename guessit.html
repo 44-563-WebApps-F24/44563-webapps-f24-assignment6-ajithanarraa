@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Guess the Color Game & Power Sum Calculator</title>
+    <title>Guess the Color Game</title>
 </head>
 <body>
+
 <h1>Guess the color - Ajitha Narra</h1>
+
+<!-- Input Form for Guessing Color -->
 <form>
     <label for="secret_color">Guess the color:</label>
     <input type="password" id="secret_color" name="secret_color" value="Red"> <br>
@@ -14,29 +17,24 @@
 
     <input type="button" onclick="processColor()" value="Check the color">
 </form>
+
+<!-- Result Section -->
 <p id="result">Attempts: 0 | Wrong: 0</p>
+
+<!-- Image Container -->
 <div id="imageContainer">
     <img id="plantImage" src="plant1.jpg" width="200" height="200" onclick="nextImage()">
 </div>
-<h2>Ajitha Narra figures out powers</h2>
-<form>
-    <label for="first_value">Enter a number:</label>
-    <input type="number" id="first_value" name="first_value" value="2"><br><br>
-
-    <label for="second_value">Enter a number:</label>
-    <input type="number" id="second_value" name="second_value" value="12"><br><br>
-
-    <input type="button" value="Compute" onclick="powerSum()">
-</form>
-<p id="powerResult">Sum of powers will be shown here</p>
 
 <script>
+    // Global variables for the color game
     let attempts = 0;
     let wrong = 0;
 
     function processColor() {
         const secretColor = document.getElementById("secret_color").value.toLowerCase();
         const guessedColor = document.getElementById("guess_color").value.toLowerCase();
+        
         attempts += 1;
         if (secretColor !== guessedColor) {
             wrong += 1;
@@ -44,11 +42,17 @@
         } else {
             alert("You got it!");
         }
+        
         document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
     }
+
+    // Global variable to track the current image
     let showing = 1;
+
+    // Function to switch images
     function nextImage() {
         const imageElement = document.getElementById("plantImage");
+
         switch (showing) {
             case 1:
                 imageElement.src = "plant2.jpg";
@@ -63,15 +67,6 @@
                 showing = 1;
                 break;
         }
-    }
-    function powerSum() {
-        let first = parseInt(document.getElementById("first_value").value);
-        let second = parseInt(document.getElementById("second_value").value);
-        let sum = 0;
-        for (let i = 0; i < first; i++) {
-            sum += Math.pow(second, i);
-        }
-        document.getElementById("powerResult").innerHTML = `Sum of ${first} powers with base ${second} is: ${sum}`;
     }
 </script>
 
