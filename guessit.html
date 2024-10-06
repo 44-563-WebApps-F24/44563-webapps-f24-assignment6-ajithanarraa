@@ -4,8 +4,6 @@
     <title>Guess the Color Game & Power Sum Calculator</title>
 </head>
 <body>
-
-<!-- Part 1-4: Guess the Color Game -->
 <h1>Guess the color - Ajitha Narra</h1>
 <form>
     <label for="secret_color">Guess the color:</label>
@@ -17,13 +15,9 @@
     <input type="button" onclick="processColor()" value="Check the color">
 </form>
 <p id="result">Attempts: 0 | Wrong: 0</p>
-
-<!-- Image Section -->
 <div id="imageContainer">
     <img id="plantImage" src="plant1.jpg" width="200" height="200" onclick="nextImage()">
 </div>
-
-<!-- Part 5: Power Sum Calculator -->
 <h2>Ajitha Narra figures out powers</h2>
 <form>
     <label for="first_value">Enter a number:</label>
@@ -37,7 +31,6 @@
 <p id="powerResult">Sum of powers will be shown here</p>
 
 <script>
-    // Part 1-4: Guess the Color Game Logic
     let attempts = 0;
     let wrong = 0;
 
@@ -53,8 +46,6 @@
         }
         document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
     }
-
-    // Image switching logic for Part 4
     let showing = 1;
     function nextImage() {
         const imageElement = document.getElementById("plantImage");
@@ -73,20 +64,13 @@
                 break;
         }
     }
-
-    // Part 5: Power Sum Calculator Logic
     function powerSum() {
-        // Get values from inputs
         let first = parseInt(document.getElementById("first_value").value);
         let second = parseInt(document.getElementById("second_value").value);
         let sum = 0;
-
-        // Loop to compute the sum of powers
         for (let i = 0; i < first; i++) {
-            sum += Math.pow(second, i); // Calculate the power and add it to sum
+            sum += Math.pow(second, i);
         }
-
-        // Display result
         document.getElementById("powerResult").innerHTML = `Sum of ${first} powers with base ${second} is: ${sum}`;
     }
 </script>
