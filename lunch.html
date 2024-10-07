@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajitha Narra Orders a Lunch</title>
+</head>
+<body>
+
+<h1>Ajitha Narra Orders a Lunch</h1>
+
+<!-- Checkbox Form for Lunch Order -->
+<form>
+    <label for="checkbox_drink">Drink</label>
+    <input type="checkbox" id="checkbox_drink" value="drink"><br>
+
+    <label for="checkbox_side">Side</label>
+    <input type="checkbox" id="checkbox_side" value="side"><br>
+
+    <label for="checkbox_in">Eat in</label>
+    <input type="checkbox" id="checkbox_in" value="in"><br>
+
+    <input type="button" onclick="startLunch()" value="Start a lunch order">
+</form>
+
+<p id="lunchResult">Your lunch order will appear here.</p>
+
+<!-- Form for Updating Lunch Object -->
+<form>
+    <label for="property_name">Enter property:</label>
+    <input type="text" id="property_name" value="entree"><br>
+
+    <label for="property_value">Set it to:</label>
+    <input type="text" id="property_value"><br>
+
+    <input type="button" onclick="updateLunch()" value="Update the lunch">
+</form>
+
+<p id="updatedLunchResult">Your updated lunch order will appear here.</p>
+
+<script>
+    let my_lunch = {};
+
+    // Function to initialize lunch object based on checkboxes
+    function startLunch() {
+        my_lunch = {};
+        my_lunch.drink = document.getElementById("checkbox_drink").checked;
+        my_lunch.side = document.getElementById("checkbox_side").checked;
+        my_lunch.in = document.getElementById("checkbox_in").checked;
+
+        document.getElementById("lunchResult").innerHTML = 
+            `Drink: ${my_lunch.drink}, Side: ${my_lunch.side}, Eat in: ${my_lunch.in}`;
+    }
+
+    // Function to update lunch object based on user input
+    function updateLunch() {
+        const property = document.getElementById("property_name").value;
+        const value = document.getElementById("property_value").value;
+
+        // Set the property on the my_lunch object
+        my_lunch[property] = value;
+
+        // Display updated lunch order
+        document.getElementById("updatedLunchResult").innerHTML = JSON.stringify(my_lunch);
+    }
+</script>
+
+</body>
+</html>
