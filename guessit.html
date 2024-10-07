@@ -6,8 +6,6 @@
 <body>
 
 <h1>Guess the color - Ajitha Narra</h1>
-
-<!-- Input Form for Guessing Color -->
 <form>
     <label for="secret_color">Guess the color:</label>
     <input type="password" id="secret_color" name="secret_color" value="Red"> <br>
@@ -17,17 +15,12 @@
 
     <input type="button" onclick="processColor()" value="Check the color">
 </form>
-
-<!-- Result Section -->
 <p id="result">Attempts: 0 | Wrong: 0</p>
-
-<!-- Image Container -->
 <div id="imageContainer">
     <img id="plantImage" src="plant1.jpg" width="200" height="200" onclick="nextImage()">
 </div>
 
 <script>
-    // Global variables for the color game
     let attempts = 0;
     let wrong = 0;
 
@@ -45,11 +38,7 @@
         
         document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
     }
-
-    // Global variable to track the current image
     let showing = 1;
-
-    // Function to switch images
     function nextImage() {
         const imageElement = document.getElementById("plantImage");
 
