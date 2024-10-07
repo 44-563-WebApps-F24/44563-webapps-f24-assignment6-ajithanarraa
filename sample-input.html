@@ -15,7 +15,6 @@
     <input type="button" onclick="resolveForm()" value="Get values from form">
 </form>
 
-
 <p id="result">This text will be replaced </p>
 
 <script> 
@@ -25,7 +24,6 @@ function resolveForm (){
     age = document.getElementById("form1_age").value
     nick = document.getElementById("form1_nick").value
     confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
     out = document.getElementById("result")
     if(confirmed){
         out.innerHTML = "Values were confirmed"
