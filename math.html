@@ -1,61 +1,54 @@
 <!DOCTYPE html>
-<html>
-<h1>Ajitha Narra figures out powers</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajitha Narra figures out powers</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
 
-<form>
-    <label for="first_value">Enter a number:</label>
-    <input type="number" id="first_value" name="first_value" value="2"><br><br>
+<h1 class="text-center">Ajitha Narra figures out powers</h1>
 
-    <label for="second_value">Enter a number:</label>
-    <input type="number" id="second_value" name="second_value" value="12"><br><br>
+<form class="mt-4">
+    <div class="form-group">
+        <label for="first_value">Enter a number:</label>
+        <input type="number" id="first_value" name="first_value" value="2" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="second_value">Enter a number:</label>
+        <input type="number" id="second_value" name="second_value" value="12" class="form-control">
+    </div>
 
     <!-- Radio Buttons for Operations -->
-    <label><input type="radio" name="operation" value="max" onclick="processRadio()"> Max</label><br>
-    <label><input type="radio" name="operation" value="min" onclick="processRadio()"> Min</label><br>
-    <label><input type="radio" name="operation" value="avg" onclick="processRadio()"> Average</label><br>
-    <label><input type="radio" name="operation" value="geo" onclick="processRadio()"> Geometric</label><br>
+    <div class="form-check">
+        <input type="radio" name="operation" value="max" onclick="processRadio()" class="form-check-input" id="max">
+        <label class="form-check-label" for="max">Max</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" name="operation" value="min" onclick="processRadio()" class="form-check-input" id="min">
+        <label class="form-check-label" for="min">Min</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" name="operation" value="avg" onclick="processRadio()" class="form-check-input" id="avg">
+        <label class="form-check-label" for="avg">Average</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" name="operation" value="geo" onclick="processRadio()" class="form-check-input" id="geo">
+        <label class="form-check-label" for="geo">Geometric</label>
+    </div>
 </form>
 
-<p id="radioResult">Computed result will be shown here</p>
+<p id="radioResult" class="font-weight-bold mt-3">Computed result will be shown here</p>
+
+<!-- Bootstrap JS & jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
-    // Variables for the Guess the Color Game
-    let attempts = 0;
-    let wrong = 0;
-
-    function processColor() {
-        const secretColor = document.getElementById("secret_color").value.toLowerCase();
-        const guessedColor = document.getElementById("guess_color").value.toLowerCase();
-        attempts += 1;
-        if (secretColor !== guessedColor) {
-            wrong += 1;
-            alert("That was not it");
-        } else {
-            alert("You got it!");
-        }
-        document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
-    }
-
-    let showing = 1;
-
-    function nextImage() {
-        const imageElement = document.getElementById("plantImage");
-        switch (showing) {
-            case 1:
-                imageElement.src = "plant2.jpg";
-                showing = 2;
-                break;
-            case 2:
-                imageElement.src = "plant3.jpg";
-                showing = 3;
-                break;
-            case 3:
-                imageElement.src = "plant1.jpg";
-                showing = 1;
-                break;
-        }
-    }
-
     function processRadio() {
         let first = parseFloat(document.getElementById("first_value").value);
         let second = parseFloat(document.getElementById("second_value").value);

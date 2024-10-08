@@ -2,39 +2,49 @@
 <html>
 <head>
     <title>Ajitha Narra Orders a Lunch</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="container mt-5">
 
-<h1>Ajitha Narra Orders a Lunch</h1>
+<h1 class="text-center">Ajitha Narra Orders a Lunch</h1>
 
 <!-- Checkbox Form for Lunch Order -->
-<form>
-    <label for="checkbox_drink">Drink</label>
-    <input type="checkbox" id="checkbox_drink" value="drink"><br>
+<form class="mb-4">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox_drink" value="drink">
+        <label for="checkbox_drink" class="form-check-label">Drink</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox_side" value="side">
+        <label for="checkbox_side" class="form-check-label">Side</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox_in" value="in">
+        <label for="checkbox_in" class="form-check-label">Eat in</label>
+    </div>
 
-    <label for="checkbox_side">Side</label>
-    <input type="checkbox" id="checkbox_side" value="side"><br>
-
-    <label for="checkbox_in">Eat in</label>
-    <input type="checkbox" id="checkbox_in" value="in"><br>
-
-    <input type="button" onclick="startLunch()" value="Start a lunch order">
+    <button type="button" class="btn btn-primary mt-3" onclick="startLunch()">Start a lunch order</button>
 </form>
 
-<p id="lunchResult">Your lunch order will appear here.</p>
+<p id="lunchResult" class="font-weight-bold">Your lunch order will appear here.</p>
 
 <!-- Form for Updating Lunch Object -->
-<form>
-    <label for="property_name">Enter property:</label>
-    <input type="text" id="property_name" value="entree"><br>
+<form class="mb-4">
+    <div class="form-group">
+        <label for="property_name">Enter property:</label>
+        <input type="text" id="property_name" value="entree" class="form-control">
+    </div>
 
-    <label for="property_value">Set it to:</label>
-    <input type="text" id="property_value"><br>
+    <div class="form-group">
+        <label for="property_value">Set it to:</label>
+        <input type="text" id="property_value" class="form-control">
+    </div>
 
-    <input type="button" onclick="updateLunch()" value="Update the lunch">
+    <button type="button" class="btn btn-secondary" onclick="updateLunch()">Update the lunch</button>
 </form>
 
-<p id="updatedLunchResult">Your updated lunch order will appear here.</p>
+<p id="updatedLunchResult" class="font-weight-bold">Your updated lunch order will appear here.</p>
 
 <script>
     let my_lunch = {};
@@ -59,7 +69,7 @@
         my_lunch[property] = value;
 
         // Display updated lunch order
-        document.getElementById("updatedLunchResult").innerHTML = JSON.stringify(my_lunch);
+        document.getElementById("updatedLunchResult").innerHTML = JSON.stringify(my_lunch, null, 2);
     }
 </script>
 
